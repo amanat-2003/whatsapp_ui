@@ -26,21 +26,21 @@ class WebProfileBar extends StatelessWidget {
             children: [
               IconButton(
                 onPressed: () {},
-                icon: const Icon(Icons.groups),
+                icon: const Icon(Icons.groups, color: Colors.grey),
               ),
               IconButton(
                 onPressed: () {},
-                icon: const Icon(Icons.crop_landscape_outlined),
+                icon: const Icon(Icons.donut_large, color: Colors.grey),
               ),
               IconButton(
                 onPressed: () {},
-                icon: const Icon(Icons.message_outlined),
+                icon: const Icon(Icons.message_outlined, color: Colors.grey),
               ),
               IconButton(
                 onPressed: () {},
-                icon: const Icon(Icons.more_vert),
+                icon: const Icon(Icons.more_vert, color: Colors.grey),
               ),
-            ],
+            ], 
           ),
         ],
       ),

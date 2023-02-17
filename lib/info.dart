@@ -147,7 +147,7 @@ const messages = [
   {"isMe": false, "text": "I am great man!", "time": "11:01 am"},
   {
     "isMe": false,
-    "text": "Just messaged cuz I had some work.",
+    "text": "Just messaged cuz I had some work. Lorem adfihaiuyfaib asgdaj sdgajshdfga usydfgajhsd ajuhsgd ajhsgdajshdgi dwufgksj djhfgsjkhfgs kjdfgkjahsdgfs kjdhfgskjhddfgkj asdhgfk ajdshgfajd hgflkjsgfal ksufhaskjfgh laksjfgajshdfg ",
     "time": "11:01 am"
   },
   {"isMe": true, "text": "Obviously, say", "time": "11:03 am"},

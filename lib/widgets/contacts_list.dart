@@ -17,7 +17,7 @@ class ContactsList extends StatelessWidget {
             onTap: () {},
             child: ListTile(
               contentPadding: const EdgeInsets.symmetric(horizontal: 8),
-              minVerticalPadding: 20,
+              minVerticalPadding: 15,
               leading: CircleAvatar(
                 radius: 35,
                 backgroundImage:
