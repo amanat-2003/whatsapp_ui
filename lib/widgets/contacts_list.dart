@@ -8,43 +8,54 @@ class ContactsList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListView.builder(
-      padding: const EdgeInsets.symmetric(vertical: 8),
-      itemBuilder: (context, index) => Padding(
-        padding: const EdgeInsets.only(bottom: 10),
-        child: InkWell(
-          onTap: () {},
-          child: ListTile(
-            leading: CircleAvatar(
-              radius: 35,
-              backgroundImage:
-                  NetworkImage(info[index]['profilePic'].toString()),
-            ),
-            title: Text(
-              info[index]['name'] as String,
-              style: const TextStyle(
-                color: textColor,
-                fontWeight: FontWeight.bold,
-                fontSize: 20,
+      shrinkWrap: true,
+      padding: const EdgeInsets.symmetric(vertical: 5),
+      itemBuilder: (context, index) => Column(
+        mainAxisAlignment: MainAxisAlignment.start,
+        children: [
+          InkWell(
+            onTap: () {},
+            child: ListTile(
+              contentPadding: const EdgeInsets.symmetric(horizontal: 8),
+              minVerticalPadding: 20,
+              leading: CircleAvatar(
+                radius: 35,
+                backgroundImage:
+                    NetworkImage(info[index]['profilePic'].toString()),
               ),
-            ),
-            subtitle: Text(
-              info[index]['message'] as String,
-              style: const TextStyle(
-                color: Colors.grey,
-                fontWeight: FontWeight.w500,
-                fontSize: 16,
+              title: Text(
+                info[index]['name'] as String,
+                style: const TextStyle(
+                  color: textColor,
+                  fontWeight: FontWeight.bold,
+                  fontSize: 20,
+                ),
               ),
-            ),
-            trailing: Text(
-              info[index]['time'].toString(),
-              style: const TextStyle(
-                color: Colors.grey,
-                fontWeight: FontWeight.w500,
-                fontSize: 13,
+              subtitle: Text(
+                info[index]['message'] as String,
+                style: const TextStyle(
+                  color: Colors.grey,
+                  fontWeight: FontWeight.w500,
+                  fontSize: 16,
+                ),
               ),
+              trailing: Text(
+                info[index]['time'].toString(),
+                style: const TextStyle(
+                  color: Colors.grey,
+                  fontWeight: FontWeight.w500,
+                  fontSize: 13,
+                ),
+              ),
+              dense: false,
             ),
           ),
-        ),
+          const Divider(
+            height: 0,
+            color: dividerColor,
+            // indent: 50,
+          ),
+        ],
       ),
       itemCount: info.length,
     );
