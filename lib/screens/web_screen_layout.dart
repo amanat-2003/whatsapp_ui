@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../widgets/web_search_bar.dart';
 import '../widgets/contacts_list.dart';
 import '../widgets/web_profile_bar.dart';
 
@@ -15,7 +16,7 @@ class WebScreenLayout extends StatelessWidget {
             child: ListView(
               children: const [
                 WebProfileBar(),
-                // Search Tab
+                WebSearchBar(),
                 ContactsList(),
               ],
             ),
