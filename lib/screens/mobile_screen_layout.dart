@@ -15,9 +15,9 @@ class MobileScreenLayout extends StatelessWidget {
           elevation: 0,
           title: const Text('WhatsApp',
               style: TextStyle(
-                  fontSize: 24,
+                  fontSize: 23,
                   color: Colors.grey,
-                  fontWeight: FontWeight.bold)),
+                  fontWeight: FontWeight.w600)),
           centerTitle: false,
           actions: [
             IconButton(

@@ -36,49 +36,55 @@ class MobileChatScreen extends StatelessWidget {
               )),
         ],
       ),
-      body: Column(
-        children: [
-          // chat list
-          const Expanded(child: ChatList()),
-          // text input
-          TextField(
-            decoration: InputDecoration(
-              filled: true,
-              fillColor: mobileChatBoxColor,
-              prefixIcon: const Padding(
-                padding: EdgeInsets.symmetric(horizontal: 20),
-                child: Icon(Icons.emoji_emotions_rounded,
-                    color: Colors.grey),
-              ),
-              suffixIcon: Row(
-                mainAxisSize: MainAxisSize.min,
-                // mainAxisAlignment: MainAxisAlignment.end,
-                children: const [
-                  Padding(
-                    padding: EdgeInsets.all(8.0),
-                    child: Icon(Icons.attach_file, color: Colors.grey),
+      body: Container(
+        decoration: const BoxDecoration(
+            image: DecorationImage(
+          image: AssetImage('assets/backgroundImage.png'),
+          fit: BoxFit.cover,
+        )),
+        child: Column(
+          children: [
+            // chat list
+            const Expanded(child: ChatList()),
+            // text input
+            TextField(
+              decoration: InputDecoration(
+                  filled: true,
+                  fillColor: mobileChatBoxColor,
+                  prefixIcon: const Padding(
+                    padding: EdgeInsets.symmetric(horizontal: 20),
+                    child:
+                        Icon(Icons.emoji_emotions_rounded, color: Colors.grey),
                   ),
-                  Padding(
-                    padding: EdgeInsets.all(8.0),
-                    child: Icon(Icons.paypal_rounded, color: Colors.grey),
+                  suffixIcon: Row(
+                    mainAxisSize: MainAxisSize.min,
+                    // mainAxisAlignment: MainAxisAlignment.end,
+                    children: const [
+                      Padding(
+                        padding: EdgeInsets.all(8.0),
+                        child: Icon(Icons.attach_file, color: Colors.grey),
+                      ),
+                      Padding(
+                        padding: EdgeInsets.all(8.0),
+                        child: Icon(Icons.paypal_rounded, color: Colors.grey),
+                      ),
+                      Padding(
+                        padding: EdgeInsets.all(8.0),
+                        child: Icon(Icons.camera_alt, color: Colors.grey),
+                      ),
+                    ],
                   ),
-                  Padding(
-                    padding: EdgeInsets.all(8.0),
-                    child: Icon(Icons.camera_alt, color: Colors.grey),
-                  ),
-                ],
-              ),
-              hintText: 'Message',
-              border: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(8),
-                  borderSide: const BorderSide(
-                    style: BorderStyle.none,
-                    width: 0,
-                  )),
-                  contentPadding: const EdgeInsets.all(10)
+                  hintText: 'Message',
+                  border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(8),
+                      borderSide: const BorderSide(
+                        style: BorderStyle.none,
+                        width: 0,
+                      )),
+                  contentPadding: const EdgeInsets.all(10)),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }
