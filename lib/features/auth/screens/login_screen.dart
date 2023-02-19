@@ -1,17 +1,20 @@
 import 'package:country_picker/country_picker.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:whatsapp_ui/colors.dart';
+import 'package:whatsapp_ui/common/utils/utils.dart';
 import 'package:whatsapp_ui/common/widgets/custom_button.dart';
+import 'package:whatsapp_ui/features/auth/controller/auth_controller.dart';
 
-class LoginScreen extends StatefulWidget {
+class LoginScreen extends ConsumerStatefulWidget {
   static const routeName = '/login-screen';
   const LoginScreen({super.key});
 
   @override
-  State<LoginScreen> createState() => _LoginScreenState();
+  ConsumerState<LoginScreen> createState() => _LoginScreenState();
 }
 
-class _LoginScreenState extends State<LoginScreen> {
+class _LoginScreenState extends ConsumerState<LoginScreen> {
   final phoneController = TextEditingController();
   Country? country;
 
@@ -21,14 +24,23 @@ class _LoginScreenState extends State<LoginScreen> {
     phoneController.dispose();
   }
 
+  void sendPhoneNumberToOTPScreen() {
+    String phoneNumber = phoneController.text.trim();
+    if (phoneNumber.isNotEmpty && country != null) {
+      ref
+          .read(authControllerProvider)
+          .signInWithPhone(context, '+${country!.phoneCode}$phoneNumber');
+    } else {
+      showSnackBar(context: context, content: 'Please fill out all the fields');
+    }
+  }
+
   void pickCountry() {
     showCountryPicker(
       context: context,
       // showPhoneCode: true,
       searchAutofocus: true,
-      countryListTheme: CountryListThemeData(
-        backgroundColor: backgroundColor
-      ),
+      countryListTheme: CountryListThemeData(backgroundColor: backgroundColor),
       onSelect: (Country value) {
         setState(() {
           country = value;
@@ -76,7 +88,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   child: Row(
                     children: [
                       if (country != null)
-                         Text(
+                        Text(
                           '+${country!.phoneCode}',
                           style: const TextStyle(fontSize: 16),
                         ),
@@ -94,7 +106,8 @@ class _LoginScreenState extends State<LoginScreen> {
             ),
             SizedBox(
               width: screenSize.width * 0.25,
-              child: CustomButton(text: 'NEXT', onPressed: () {}),
+              child: CustomButton(
+                  text: 'NEXT', onPressed: sendPhoneNumberToOTPScreen),
             )
           ],
         ),
