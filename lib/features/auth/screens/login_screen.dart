@@ -40,7 +40,7 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
       context: context,
       // showPhoneCode: true,
       searchAutofocus: true,
-      countryListTheme: CountryListThemeData(backgroundColor: backgroundColor),
+      countryListTheme: const CountryListThemeData(backgroundColor: backgroundColor),
       onSelect: (Country value) {
         setState(() {
           country = value;
